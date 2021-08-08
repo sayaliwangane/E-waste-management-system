@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-waste Management System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="s.css">
+    <style type="text/css">
+      /* map needs width and height to appear */
+      #map {
+        position: relative;
+        width: 1370px;
+        max-width: 100%;
+        height: 576px;
+      }
+      #info_div{
+        position: absolute;
+        top: 250px;
+        left: 50px;
+        font-weight: bold;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+          <div class="header-left">
+            <a href="index.php"><div class="logo"> <img class="lg" src = "green-energy.png"> E-waste Management System</div></a>
+          </div>
+          <div class="header-right">
+          <ul >
+              <li><a href="donationmap.html">Donate</a></li>
+              <li><a href="recyclemap.html">Recycle</a></li> 
+              <li><a class="ewaste" href="E-waste calculator\calc.php">E-waste Calculator</a></li>
+          </ul>
+      </div>
+      </div>
+  </header>
+    <!-- this div will hold your map -->
+    <div id="map"></div>
+
+    <!-- this div will hold your store info -->
+    <div id="info_div"></div>
+
+    <script>
+      function initMap() {
+        var myMapCenter = { lat: 19.076090, lng: 72.877426 };
+
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: myMapCenter,
+          zoom: 12,
+        });
+
+        function markStore(storeInfo) {
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
+            map: map,
+            position: storeInfo.location,
+            title: storeInfo.name,
+          });
+
+          // show store info when marker is clicked
+          marker.addListener("click", function () {
+            showStoreInfo(storeInfo);
+          });
+        }
+
+        // show store info in text box
+        function showStoreInfo(storeInfo) {
+          var info_div = document.getElementById("info_div");
+          info_div.innerHTML =
+            "NGO Name: " + storeInfo.name + "<br>Hours: " + storeInfo.hours;
+        }
+
+        var stores = [
+          {
+            name: "Smile Foundation, Mumbai",
+            location: { lat: 19.10456, lng: 72.84892 },
+            hours: "Open 24 Hrs",
+          },
+          {
+            name: "AIESEC in Mumbai",
+            location: { lat: 19.05948, lng: 72.83889 },
+            hours: "10:00 AM to 5:00 PM",
+          },
+          {
+            name:"Children Toy Foundation",
+            location: {lat: 18.92981, lng: 72.83369 },
+            hours:"8:00 AM to 8:00 PM ",
+          },
+          {
+            name:"RaddiConnect",
+            location: {lat:19.06957 , lng: 72.83737 },
+            hours:"9:30 AM to 6:30 PM ",
+          },
+          {
+            name:"Pratham Education Foundation",
+            location: {lat:19.06181, lng:72.88667},
+            hours:"9:00 AM to 8:00 PM ",
+          },
+          {
+            name:"Abhilasha Foundation NGO",
+            location: {lat:19.22634 ,lng:72.82782 },
+            hours:" 10:00 AM to 6:00 PM",
+          },
+          {
+            name:"United Way Mumbai",
+            location: {lat:19.05307 , lng:72.82912 },
+            hours:" 10:00 AM to 6:00 PM",
+          },
+          {
+            name: "Goonj",
+            location: {lat:18.99286 ,lng:72.81742 },
+            hours:"10:00 AM to 7:00 PM",  
+          },
+          {
+            name: "Mumbai Smiles Foundation",
+            location: {lat:19.05379 ,lng: 72.91304 },
+            hours:"9:00 AM to 5:00 PM",  
+          },
+          {
+            name: "E Waste Recycling India",
+            location: {lat:19.18654 ,lng:72.85292 },
+            hours:"8:00 AM to 8:00 PM",  
+          },
+          {
+            name: "Ecotech Recycling- E waste recycling Mumbai",
+            location: {lat:19.07274 ,lng:72.86866 },
+            hours:"Open 24 Hrs",  
+          },
+          {
+            name: "Ecoreco",
+            location: {lat:19.11847 ,lng:72.85758 },
+            hours:"9:30 AM to 6:30 PM",  
+          },
+          {
+            name: "iVolunteer",
+            location: {lat:19.10323 ,lng:72.84663 },
+            hours:"10:00 AM to 6:00 PM",  
+          },
+          {
+            name: "YOUTH FOR UNITY AND VOLUNTARY ACTION (YUVA)",
+            location: {lat:19.06378 ,lng:72.88716 },
+            hours:"10:00 AM to 6:00 PM",  
+          },
+          {
+            name: "Spark-A-Change Foundation",
+            location: {lat:19.14897 ,lng:72.82772 },
+            hours: "10:15 AM to 4:00 PM",
+          },
+        
+        ];
+
+        stores.forEach(function (store) {
+          markStore(store);
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpueEw4LcYvFFAUa5SnKtwib48fLq-WC0&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>

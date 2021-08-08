@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-waste Management System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="s.css">
+    <style type="text/css">
+      /* map needs width and height to appear */
+      #map {
+        position: relative;
+        width: 1370px;
+        max-width: 100%;
+        height: 576px;
+      }
+      #info_div{
+        position: absolute;
+        top: 250px;
+        left: 50px;
+        font-weight: bold;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+          <div class="header-left">
+            <a href="index.php"><div class="logo"> <img class="lg" src = "green-energy.png"> E-waste Management System</div></a>
+          </div>
+          <div class="header-right">
+          <ul >
+              <li><a href="donationmap.html">Donate</a></li>
+              <li><a href="recyclemap.html">Recycle</a></li> 
+              <li><a class="ewaste" href="E-waste calculator\calc.php">E-waste Calculator</a></li>
+          </ul>
+      </div>
+      </div>
+  </header>
+    <!-- this div will hold your map -->
+    <div id="map"></div>
+
+    <!-- this div will hold your store info -->
+    <div id="info_div"></div>
+
+    <script>
+      function initMap() {
+        var myMapCenter = { lat: 19.076090, lng: 72.877426 };
+
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: myMapCenter,
+          zoom: 12,
+        });
+
+        function markStore(storeInfo) {
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
+            map: map,
+            position: storeInfo.location,
+            title: storeInfo.name,
+          });
+
+          // show store info when marker is clicked
+          marker.addListener("click", function () {
+            showStoreInfo(storeInfo);
+          });
+        }
+
+        // show store info in text box
+        function showStoreInfo(storeInfo) {
+          var info_div = document.getElementById("info_div");
+          info_div.innerHTML =
+            "Store name: " + storeInfo.name + "<br>Hours: " + storeInfo.hours;
+        }
+
+        var stores = [
+          {
+            name: "Ecotech Recycling- E waste recycling Mumbai, E-Waste Recycling",
+            location: { lat: 19.11971, lng: 72.85741 },
+            hours: "Open 24 Hrs",
+          },
+          {
+            name: "Ecoreco - E-Waste Recycling",
+            location: { lat: 19.07490, lng: 72.86841 },
+            hours: "9:30 AM to 6:30 PM",
+          },
+          {
+            name:"E Waste Recycling India",
+            location: {lat: 19.19185, lng: 72.85368 },
+            hours:"8:00 AM to 8:00 PM ",
+          },
+          {
+            name:"Spas Recycling Pvt Ltd - E-waste Recycling",
+            location: {lat:19.13956 , lng: 72.86086 },
+            hours:"10:00 AM to 7:00PM ",
+          },
+          {
+            name:"Kohinoor E-waste Recycling Pvt. Ltd.",
+            location: {lat:19.09628, lng:72.89313},
+            hours:"10:00 AM to 6:00 PM ",
+          },
+          {
+            name:"S. N Computer Scrap - EWaste Recycling",
+            location: {lat:19.10621 ,lng:72.88888 },
+            hours:"Opens 24 Hrs ",
+          },
+          {
+            name:"Eco Layer E-Waste Recycling",
+            location: {lat:19.13124 , lng:72.86771 },
+            hours:" 9:00 AM to 8:00 PM",
+          },
+          {
+            name: "Navkar Recycling - E Waste Recycling Mumbai",
+            location: {lat:19.16442 ,lng:72.94265 },
+            hours:"10:00 AM to 7:00 PM",  
+          },
+          {
+            name: "INAAYA RECYCLING E WASTE",
+            location: {lat:19.12295 ,lng:72.885434 },
+            hours:"10:00 AM to 6:00 PM",  
+          },
+          {
+            name: "E-Incarnation Recycling Pvt. Ltd.",
+            location: {lat:19.00445 ,lng:72.83069 },
+            hours:"10:00 AM to 6:30 PM",  
+          },
+          {
+            name: "Envirocare E-waste",
+            location: {lat:19.151314 ,lng:72.897109 },
+            hours:"8:00 AM to 3:00 AM",  
+          },
+          {
+            name: "Computer Scrap Dealer | Scrap Buyer | Scrap Yard | E-Waste Recycling (Computer Junction)",
+            location: {lat:19.09682 ,lng:72.88457 },
+            hours:"Open 24 Hrs",  
+          },
+          {
+            name: "Green India E-Waste & Recycling Opc Pvt. Ltd.",
+            location: {lat:19.07856 ,lng:72.99462 },
+            hours:"10:00 AM to 6:00 PM",  
+          },
+          {
+            name: "Cleantech E-Waste Management co.",
+            location: {lat:19.10526 ,lng:72.88714 },
+            hours:"10:00 AM to 7:00 PM",  
+          },
+          {
+            name: "BHARAT E - WASTE RECYCLING CO.",
+            location: {lat:19.09751 ,lng:72.90323 },
+            hours: ":00 AM to :00 PM",
+          },
+          {
+            name: "Revive eWaste Management Company ",
+            location: {lat:19.11183 ,lng:73.03053 },
+            hours: "10:30 AM to 6:30 PM",
+          },
+          {
+            name: "JRS Recycling Solutions Pvt Ltd",
+            location: {lat:19.09890 ,lng:72.88653},
+            hours: "10:00 AM to 9:00 PM",
+          },
+          {
+            name: "Electronic Waste Recycling Hub ",
+            location: {lat:19.18640 ,lng:72.85253 },
+            hours: ":00 AM to :00 PM",
+          },
+          {
+            name: "Swarex Worldwide Pvt Ltd - Pet Bottle,Ewaste,Metal,Tyre,Metal Scrap recycling machine",
+            location: {lat:19.279015  ,lng:72.84278},
+            hours: "9:30 AM to 7:30 PM",
+          },
+          {
+            name: "E-Frontline Recycling",
+            location: {lat:19.10310 ,lng:72.88861 },
+            hours: "11:00 AM to 8:00 PM",
+          },
+        
+        ];
+
+        stores.forEach(function (store) {
+          markStore(store);
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpueEw4LcYvFFAUa5SnKtwib48fLq-WC0&callback=initMap"
+      async
+      defer
+    ></script>
+</body>
+</html>

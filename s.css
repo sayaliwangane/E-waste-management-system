@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  font-family: Lato, 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+body{
+  margin:0;
+  font-family: Lato, 'Hiragino Kaku Gothic Pro', sans-serif;
+  background: linear-gradient(90deg, rgba(196, 224, 206, 0.8) 0%, rgb(55, 209, 124) 100%);
+}
+header {
+  position: relative;
+  height: 80px;
+  background: linear-gradient(90deg, rgba(196, 224, 206, 0.8) 0%, rgb(55, 209, 124) 100%);
+}
+
+.header-left {
+  float: left;
+  margin-left: 50px;
+  height: 80px;
+}
+
+.lg{
+  padding-top: 5px;
+  height:70px;
+  width: auto;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color:rgb(5, 66, 66);
+}
+
+.im{
+  max-width: 100%;  
+  width: 1350px;
+  height: 576px;
+  max-height: auto;
+}
+.wrap{
+  width: 100%;
+  
+  text-align: left;
+  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  line-height: 52px;
+  font-size: 20px;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.bg-wrap{
+  color: white;
+  text-align: left;
+
+  background-size: cover;
+}
+
+
+.ptext2{
+  position: absolute;
+  top: 360px;
+  left: 80px;
+  margin:30px;
+  font-size: 22px;
+  color:rgb(5, 66, 66);
+}
+
+.ptext1{
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  font-size: 25px;
+  margin:30px;
+  color:rgb(5, 66, 66);
+}
+
+.btn-wrapper{
+  text-align: left;
+    margin: 50px ;
+}
+
+.btn {
+  color: rgba(255, 255, 255, 0.972);
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 35px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 23px;
+  background-color: rgb(50, 199, 117);
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.checkout{
+  position: absolute;
+  top: 250px;
+  left: 150px;
+  padding: 18px 36px;
+}
+
+
+.donate{
+  position: absolute;
+  top: 450px;
+  left: 130px;
+  padding: 15px 60px;
+}
+
+.recycle{
+  position: absolute;
+  top: 450px;
+  left: 400px;
+  padding: 15px 60px;
+}
+
+/*footer*/
+#endline {
+
+  width: 100%;
+  height: 25px;
+  margin-top: 70px;
+
+}
+
+#endline p{
+margin: 85px;
+line-height: 25px;
+
+}
+#info{
+
+float: left;
+margin: 0px;
+font-size: 12px;
+margin-left: 50px; 
+margin-top: 20px;
+}
+
+#info p{
+margin: 0px;
+}
+
+#contactus h4{
+margin-left: 85px; 
+float: left;
+}
+
+/*footer*/
